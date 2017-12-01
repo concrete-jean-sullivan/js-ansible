@@ -1,0 +1,23 @@
+
+---
+- name: Install Services on WebServers
+  hosts: bd_servers
+
+  tasks:
+   - name: update
+     apt: update_cache=yes
+
+   - name: Install MySQL and more services
+     apt: name={{item}} state=present
+     with_items:
+          - mysql-server
+          - snmpd
+          - postfix
+          - vim
+
+   - name: restart all services
+     service: name={{item}} state=restarted
+     with_items:
+          - mysql-server
+          - snmpd
+          - postfix

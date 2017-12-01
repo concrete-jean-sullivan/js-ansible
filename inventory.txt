@@ -1,0 +1,15 @@
+
+#Hosts Web
+web01 ansible_host=10.200.6.75 ansible_ssh_user=root  ansible_ssh_pass=dual2020
+web02 ansible_host=10.200.5.173 ansible_ssh_user=root ansible_ssh_pass=dual2020
+
+#Hosts BD
+bd01 ansible_host=10.200.5.174 ansible_ssh_user=root ansible_ssh_pass=dual2020
+
+# Groups
+[web_servers]
+web01
+web02
+
+[bd_servers]
+bd01
